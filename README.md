@@ -12,7 +12,7 @@ A personal productivity app for managing your daily tasks with a polished dashbo
 
 | Light Mode                                                                | Dark Mode                                                                  |
 | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| ![Home Light](./screenshots/Screenshot_Home_in_light-mode_with_todos.png) | ![Home Dark](./screenshots/Screenshot_Home_in_dark-mode_with_no_todos.png) |
+| ![Home Light](./screenshots/Screenshot_Home_in_light-mode_with_todos.png) | ![Home Dark](./screenshots/Screenshot_light-mode.png) |
 
 ### 📊 Dashboard
 
