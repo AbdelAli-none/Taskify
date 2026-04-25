@@ -13,7 +13,6 @@ import { CategoriesChartStats } from "@/components/CategoriesChartStats";
 import { getCategoriesList } from "../actions/category/categoriesList";
 import { TodosStats } from "@/components/TodosStats";
 
-
 const Dashboard = async () => {
   const result = await getTodos();
   const totalTodos = result.data ?? [];
