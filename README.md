@@ -1,4 +1,4 @@
-# [](./logoPage.png) Taskify
+# ![Logo](./public/logoPage.png)
 
 A personal productivity app for managing your daily tasks with a polished dashboard, streak tracking, and smart categorization.
 

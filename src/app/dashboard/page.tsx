@@ -1,10 +1,5 @@
 export const dynamic = "force-dynamic";
 import { StreakDays } from "@/components/StreakDays";
-// import { CategoriesChartStats } from "./CategoriesChartStats";
-// import { ToDosStats } from "./ToDosStats";
-// import { UpcomingTodos } from "./UpcomingTodos";
-// import { LongestDayStreak } from "./LongestDayStreak";
-// import { Achievements } from "./Achievements";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { getTodos } from "../actions/todo/getTodos";
@@ -17,7 +12,7 @@ import { UpcomingTodos } from "@/components/UpcomingTodos";
 import { CategoriesChartStats } from "@/components/CategoriesChartStats";
 import { getCategoriesList } from "../actions/category/categoriesList";
 import { TodosStats } from "@/components/TodosStats";
-import RandomQuote from "@/components/RandomQuote";
+
 
 const Dashboard = async () => {
   const result = await getTodos();
@@ -53,9 +48,6 @@ const Dashboard = async () => {
           </div>
           <div className="w-fit flex-1/2 items-end">
             <StreakDays todos={completedTodos} />
-          </div>
-          <div className="flex-1">
-            <RandomQuote />
           </div>
         </div>
       </div>

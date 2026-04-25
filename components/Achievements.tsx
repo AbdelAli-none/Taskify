@@ -2,7 +2,6 @@ import { Avatar } from "@radix-ui/react-avatar";
 import { Card, CardContent, CardTitle } from "./ui/card";
 import { calcConsequitiveDays } from "@/lib/features/dashboard/calcConsequitiveDays";
 import { ITodo } from "@/interfaces";
-import RandomQuote from "./RandomQuote";
 
 const achievements = [
   {
@@ -83,9 +82,6 @@ export const Achievements = ({ todos: completedTodos }: AchievementsProps) => {
           </Card>
         ))}
       </div>
-      <p className="text-white/90 text-sm font-medium leading-relaxed italic text-center mt-2">
-        Built with ❤️ by Ali · © 2026
-      </p>
     </div>
   );
 };
