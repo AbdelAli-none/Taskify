@@ -51,7 +51,7 @@ A personal productivity app for managing your daily tasks with a polished dashbo
 
 ### 🎯 Priority System
 
-- Pre-defined priority levels: Urgent, High, Medium, Low
+- Pre-defined priority levels: Emergency, High, Medium, Low
 - Each priority has its own color and icon
 - Todos are automatically sorted by priority
 
@@ -81,7 +81,7 @@ A personal productivity app for managing your daily tasks with a polished dashbo
 
 | Category         | Technology                                      |
 | ---------------- | ----------------------------------------------- |
-| Framework        | [Next.js 15](https://nextjs.org/) (App Router)  |
+| Framework        | [Next.js 16](https://nextjs.org/) (App Router)  |
 | Language         | [TypeScript](https://www.typescriptlang.org/)   |
 | Styling          | [Tailwind CSS v4](https://tailwindcss.com/)     |
 | UI Components    | [shadcn/ui](https://ui.shadcn.com/)             |
