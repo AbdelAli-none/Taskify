@@ -7,7 +7,7 @@ import { Spinner } from "./ui/spinner";
 
 const MainContent = async () => {
   return (
-    <section className="relative h-full overflow-y-auto rounded-xl duration-200">
+    <section className="relative h-full flex items-center justify-center overflow-y-auto rounded-xl duration-200">
       <Image
         src="/dashboard-light.png"
         alt="Dashboard Background"
@@ -28,9 +28,9 @@ const MainContent = async () => {
       />
       <Suspense
         fallback={
-          <p className="flex items-center space-x-1">
+          <p className="flex items-center space-x-3 z-50">
             {" "}
-            <Spinner /> Loading Tasks...
+            <Spinner className="h-3" /> Loading Tasks...
           </p>
         }
       >

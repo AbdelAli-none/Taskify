@@ -5,7 +5,7 @@ import { ScrollArea } from "./ui/scroll-area";
 import { ITodo } from "@/interfaces";
 import CardToDo from "./CardTodo";
 import ImageSection from "./ImageSection";
-import { memo, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 interface TodosContentProps {
   todos: ITodo[];
@@ -177,4 +177,4 @@ const TodosContent = ({ todos }: TodosContentProps) => {
   );
 };
 
-export default memo(TodosContent);
+export default TodosContent;

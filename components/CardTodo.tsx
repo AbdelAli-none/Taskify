@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 // import { DropdownMenuDialog } from "./DropDownToDo";
 import type { ITodo } from "@/interfaces";
 import { toast } from "sonner";
-import React, { memo } from "react";
+import React, { memo, useTransition } from "react";
 import DropdownMenuDialog from "./DropdownMenuDialog";
 import { handleTodoStatus } from "@/src/app/actions/todo/handleStatus";
 
@@ -22,6 +22,8 @@ type CardToDoProps = {
 };
 
 const CardToDo = ({ todoInfo }: CardToDoProps) => {
+  const [isPending, startTransition] = useTransition();
+
   const {
     id,
     title,

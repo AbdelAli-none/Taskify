@@ -37,12 +37,19 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center bg-muted rounded-lg p-2 mb-1 shadow-xl dark:shadow-[0_0_3px_rgba(255,255,255,0.4)] h-12.5 duration-200">
       <div>
-        <Image src={"/logoApp.png"} width={100} height={40} alt="logoApp" />
+        <Image
+          src={"/logoApp.png"}
+          loading="eager"
+          width={70}
+          height={100}
+          className="md:w-[70%]"
+          alt="logoApp"
+        />
       </div>
       <div className="flex items-center gap-2 text-sm text-muted-foreground">
         <FcCalendar className="w-6 h-6 hidden md:block" />
         {mounted && (
-          <div>
+          <div className="hidden md:block">
             <span className="text-md md:text-2xl font-bold text-[#ffb22b]">
               {day}/
             </span>
@@ -69,6 +76,7 @@ const Navbar = () => {
         )}
         {mounted && (
           <Button
+            name="mode"
             className={`rounded-lg text-forground bg-transparent cursor-pointer hover:bg-[#e8e8e8] dark:hover:bg-[#ffffff29] duration-200 ${theme === "light" ? "text-black" : "text-white"}`}
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
