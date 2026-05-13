@@ -14,14 +14,13 @@ import {
 import { Pencil, Trash2 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, memo, SetStateAction, useState } from "react";
 import { ICategory, ITodo } from "@/interfaces";
 import { Spinner } from "./ui/spinner";
 import {
   deleteCategoryDialog,
   editCategoryDialogOpen,
   isAddCategoryDialogOpen,
-  mainDialogOpen,
 } from "@/lib/features/ui/uiSlice";
 import { categoryToEdit } from "@/lib/features/category/categorySlice";
 import { deleteCategory } from "@/src/app/actions/category/deleteCategory";
@@ -46,7 +45,7 @@ interface SelectCategoryProps {
   setUpdateToDo?: Dispatch<SetStateAction<ITodo>>;
 }
 
-export const SelectCategory = ({
+const SelectCategory = ({
   loading,
   categories,
   onSelect,
@@ -266,3 +265,5 @@ export const SelectCategory = ({
     </>
   );
 };
+
+export default memo(SelectCategory);

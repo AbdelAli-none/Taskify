@@ -7,11 +7,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-// import { capitalize } from "@/utils/capital";
-// import { useDispatch } from "react-redux";
 import { IPriority, ITodo } from "@/interfaces";
 import { Spinner } from "./ui/spinner";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, memo, SetStateAction } from "react";
 
 interface SelectPriorityProps {
   loading: boolean;
@@ -21,7 +19,7 @@ interface SelectPriorityProps {
   setUpdateToDo?: Dispatch<SetStateAction<ITodo>>;
 }
 
-export const SelectPriority = ({
+const SelectPriority = ({
   loading,
   priorities,
   onSelect,
@@ -89,3 +87,5 @@ export const SelectPriority = ({
     </Select>
   );
 };
+
+export default memo(SelectPriority);

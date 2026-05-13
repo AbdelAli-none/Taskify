@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { MoreHorizontalIcon } from "lucide-react";
 import {
   DropdownMenu,
@@ -23,9 +23,8 @@ import {
 } from "./ui/dialog";
 import { FieldLabel } from "./ui/field";
 import { Input } from "./ui/input";
-// import type { TodoStrapi } from "@/types";
-import { SelectCategory } from "./SelectCategory";
-import { SelectPriority } from "./SelectPriority";
+import SelectCategory from "./SelectCategory";
+import SelectPriority from "./SelectPriority";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -53,7 +52,7 @@ interface DropdownMenuDialogProps {
   todoInfo: ITodo;
 }
 
-export const DropdownMenuDialog = ({ todoInfo }: DropdownMenuDialogProps) => {
+const DropdownMenuDialog = ({ todoInfo }: DropdownMenuDialogProps) => {
   // states
   const [showEditDialog, setShowEditDialog] = useState(false);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
@@ -266,6 +265,7 @@ export const DropdownMenuDialog = ({ todoInfo }: DropdownMenuDialogProps) => {
                     await updateTodo(updatedToDo);
                     toast.success("Todo has been updated");
                     setUpdatingLoading(false);
+                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
                   } catch (error) {
                     toast.error("Failed to update todo");
                   } finally {
@@ -324,3 +324,5 @@ export const DropdownMenuDialog = ({ todoInfo }: DropdownMenuDialogProps) => {
     </>
   );
 };
+
+export default memo(DropdownMenuDialog);

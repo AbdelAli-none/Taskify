@@ -35,6 +35,7 @@ model Todo {
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("todos")
+  @@index([userId]) // Simple index
 }
 
 model Category {

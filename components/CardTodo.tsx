@@ -13,15 +13,15 @@ import { motion } from "framer-motion";
 // import { DropdownMenuDialog } from "./DropDownToDo";
 import type { ITodo } from "@/interfaces";
 import { toast } from "sonner";
-import React from "react";
-import { DropdownMenuDialog } from "./DropdownMenuDialog";
+import React, { memo } from "react";
+import DropdownMenuDialog from "./DropdownMenuDialog";
 import { handleTodoStatus } from "@/src/app/actions/todo/handleStatus";
 
 type CardToDoProps = {
   todoInfo: ITodo;
 };
 
-export const CardToDo = ({ todoInfo }: CardToDoProps) => {
+const CardToDo = ({ todoInfo }: CardToDoProps) => {
   const {
     id,
     title,
@@ -116,3 +116,5 @@ export const CardToDo = ({ todoInfo }: CardToDoProps) => {
     </motion.div>
   );
 };
+
+export default memo(CardToDo);

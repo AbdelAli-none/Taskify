@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { memo } from "react";
 
 interface ImageSectionProps {
   src: string;
@@ -7,7 +8,7 @@ interface ImageSectionProps {
   paragraph: string;
 }
 
-export const ImageSection = ({ src, alt, paragraph }: ImageSectionProps) => {
+const ImageSection = ({ src, alt, paragraph }: ImageSectionProps) => {
   return (
     <motion.div
       layout
@@ -30,3 +31,5 @@ export const ImageSection = ({ src, alt, paragraph }: ImageSectionProps) => {
     </motion.div>
   );
 };
+
+export default memo(ImageSection);

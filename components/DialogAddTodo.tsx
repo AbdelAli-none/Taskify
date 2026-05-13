@@ -17,10 +17,10 @@ import { RootState } from "@/lib/features/store";
 import { mainDialogOpen } from "@/lib/features/ui/uiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Textarea } from "./ui/textarea";
-import { SelectCategory } from "./SelectCategory";
-import { SelectPriority } from "./SelectPriority";
+import SelectCategory from "./SelectCategory";
+import SelectPriority from "./SelectPriority";
 import { ICategory, IPriority } from "@/interfaces";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getCategoriesList } from "@/src/app/actions/category/categoriesList";
 import { getPrioritiesList } from "@/src/app/actions/priority/prioritiesList";
 import { createTodo } from "@/src/app/actions/todo/createTodo";
@@ -74,6 +74,16 @@ function DialogAddTodo() {
     isDeleteCategoryDialogOpen,
     isEditCategoryDialogOpen,
   ]);
+
+  const handleSelectCateogry = useCallback(
+    (id: number) => setCategoryId(id),
+    [],
+  );
+
+  const handleSelectPriority = useCallback(
+    (id: number) => setPriorityId(id),
+    [],
+  );
 
   const handleSubmit = async () => {
     if (!title || !description || !categoryId || !priorityId) return;
@@ -162,7 +172,7 @@ function DialogAddTodo() {
                 <SelectCategory
                   categories={categories}
                   loading={loading}
-                  onSelect={(id) => setCategoryId(id)}
+                  onSelect={handleSelectCateogry}
                 />
               </div>
               <div className="grid gap-2">
@@ -170,7 +180,7 @@ function DialogAddTodo() {
                 <SelectPriority
                   priorities={priorities}
                   loading={loading}
-                  onSelect={(id) => setPriorityId(id)}
+                  onSelect={handleSelectPriority}
                 />
               </div>
             </div>

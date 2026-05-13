@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
 import { Moon, Sun } from "lucide-react";
 import { FcCalendar } from "react-icons/fc";
@@ -43,7 +43,9 @@ const Navbar = () => {
         <FcCalendar className="w-6 h-6 hidden md:block" />
         {mounted && (
           <div>
-            <span className="text-md md:text-2xl font-bold text-[#ffb22b]">{day}/</span>
+            <span className="text-md md:text-2xl font-bold text-[#ffb22b]">
+              {day}/
+            </span>
             <span className="font-bold text-[#00c896]">{numberOfDay}-</span>
             <span className="font-bold text-primary">{month}</span>
           </div>
@@ -94,4 +96,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

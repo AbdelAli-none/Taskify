@@ -305,7 +305,6 @@ const NoTasksAdded = () => {
             ></path>
           </g>
         </svg>
-
         <p className="text-gray mt-2">Todos you add will appear here</p>
       </motion.div>
     )

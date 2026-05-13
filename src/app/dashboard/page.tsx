@@ -14,11 +14,15 @@ import { getCategoriesList } from "../actions/category/categoriesList";
 import { TodosStats } from "@/components/TodosStats";
 
 const Dashboard = async () => {
-  const result = await getTodos();
-  const totalTodos = result.data ?? [];
-  const categories = (await getCategoriesList()).data ?? [];
-  const completedTodos = result.data?.filter((todo) => todo.isDone) ?? [];
-  const upcomingTodos = result.data?.filter((todo) => !todo.isDone) ?? [];
+  const [todosResult, categoriesResult] = await Promise.all([
+    getTodos(),
+    getCategoriesList(),
+  ]);
+
+  const todos = todosResult.data ?? [];
+  const completedTodos = todos.filter((todo) => todo.isDone);
+  const upcomingTodos = todos.filter((todo) => !todo.isDone);
+  const categories = categoriesResult.data ?? [];
 
   return (
     <div className="p-2 h-full grid grid-cols-12 md:grid-rows-12 gap-2 rounded-xl bg-[url('/dashboard-light.png')] dark:bg-[url('/dashboard-dark.png')]">
@@ -68,7 +72,7 @@ const Dashboard = async () => {
       </div>
 
       <div className="col-span-12 md:col-span-4 rounded-2xl row-span-1 md:row-span-7">
-        <CategoriesChartStats todos={totalTodos} categories={categories} />
+        <CategoriesChartStats todos={todos} categories={categories} />
       </div>
 
       <div className="col-span-12 md:col-span-4 rounded-2xl row-span-1 md:row-span-7">
