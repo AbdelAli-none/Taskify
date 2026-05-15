@@ -57,6 +57,8 @@ export const Achievements = ({ todos: completedTodos }: AchievementsProps) => {
 
   const { longest } = calcConsequitiveDays(dates() ?? []);
 
+  console.log(longest);
+
   return (
     <div className="w-full">
       <h1 className="text-md md:text-xl text-yellow-400/90 font-normal mb-6">
@@ -67,7 +69,9 @@ export const Achievements = ({ todos: completedTodos }: AchievementsProps) => {
           <Card
             key={idx}
             className={`p-3 block h-fit bg-transparent hover:bg-black/10 hover:scale-105 duration-500 border-gray/50 dark:border dark:border-gray/30 shadow-md text-center ${
-              achievement.requirement <= longest ? "grayscale-0" : "grayscale"
+              achievement.requirement <= longest
+                ? "grayscale-0"
+                : "grayscale-100"
             }`}
           >
             <CardTitle className="font-thin text-sm text-gray-100 mb-1">

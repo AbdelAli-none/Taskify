@@ -126,6 +126,7 @@ const SelectCategory = ({
                     >
                       <div className="flex justify-between w-full items-center">
                         <SelectItem
+                          key={`${id}-${name}`}
                           className={`flex justify-start items-center`}
                           value={categoryId}
                         >

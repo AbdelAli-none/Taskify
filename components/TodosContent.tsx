@@ -32,7 +32,7 @@ const TodosContent = ({ todos }: TodosContentProps) => {
   );
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full w-full flex flex-col">
       {/* Mobile tab switcher */}
       <div className="flex z-50 md:hidden gap-2 p-2 mx-2 mt-2">
         <button
@@ -59,11 +59,11 @@ const TodosContent = ({ todos }: TodosContentProps) => {
 
       <motion.div
         layout
-        initial={{ opacity: 0, x: direction * 100 }}
+        initial={{ opacity: 0, x: 0 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: direction * 100 }}
         transition={{ duration: 0.3, delay: 1 }}
-        className="grid grid-cols-1 md:grid-cols-[2fr_2fr] gap-0 overflow-y-hidden p-2 flex-1"
+        className="grid grid-cols-1 md:grid-cols-[2fr_2fr] gap-0 overflow-y-hidden flex-1"
       >
         {/* Mobile: animated section swap */}
         <div className="md:hidden overflow-hidden flex-1">
@@ -78,10 +78,12 @@ const TodosContent = ({ todos }: TodosContentProps) => {
             >
               <ScrollArea className="h-full w-full rounded-md p-2 py-1 ring-1 ring-foreground/10">
                 <div
-                  className={`flex justify-center flex-wrap gap-1 mt-2 p-1 ${
-                    (activeTab === "pending" ? pendingTodos : completedTodos)
-                      .length === 0 && "items-center"
-                  }`}
+                  className={`flex justify-center flex-wrap gap-1 mt-2 p-1 
+                    ${
+                      (activeTab === "pending" ? pendingTodos : completedTodos)
+                        .length === 0 && "items-center"
+                    }
+                  `}
                   style={
                     (activeTab === "pending" ? pendingTodos : completedTodos)
                       .length

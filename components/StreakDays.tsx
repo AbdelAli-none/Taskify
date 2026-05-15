@@ -61,7 +61,7 @@ export const StreakDays = ({ todos: completedTodos }: StreakDaysProps) => {
   return (
     <Card className="bg-transparent ring-0 items-end">
       <CardContent className="">
-        <ChartContainer className="h-32.5 w-37.5" config={chartConfig}>
+        <ChartContainer className="h-38 w-38" config={chartConfig}>
           <RadialBarChart
             data={chartData}
             startAngle={0}

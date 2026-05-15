@@ -27,7 +27,7 @@ const Dashboard = async () => {
   return (
     <div className="p-2 h-full grid grid-cols-12 md:grid-rows-12 gap-2 rounded-xl bg-[url('/dashboard-light.png')] dark:bg-[url('/dashboard-dark.png')]">
       <div className="row-span-1 md:row-span-4 bg-linear-to-tr from-blue-600/75 via-purple-600/75 to-pink-500/75 shadow shadow-primary col-span-12 md:col-span-6 rounded-2xl">
-        <div className="flex justify-between items-start flex-wrap p-3">
+        <div className="flex justify-between items-center flex-wrap p-3">
           <div className="text-start text-gray-800 mt-1 flex-1/2">
             <h2 className="text-md md:text-2xl font-extralight flex items-center flex-nowrap">
               <span className="text-gray-100 dark:text-gray-400">
@@ -49,7 +49,7 @@ const Dashboard = async () => {
               </Link>
             </Button>
           </div>
-          <div className="w-fit flex-1/2 items-end">
+          <div className="w-fit flex-1/2">
             <StreakDays todos={completedTodos} />
           </div>
         </div>

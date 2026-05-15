@@ -30,7 +30,7 @@ const MainContent = async () => {
         fallback={
           <p className="flex items-center space-x-3 z-50">
             {" "}
-            <Spinner className="h-3" /> Loading Tasks...
+            <Spinner className="h-7 w-7 mr-2 text-blue-600" /> Loading Tasks...
           </p>
         }
       >

@@ -37,9 +37,9 @@ export default async function RootLayout({
     >
       <body className="h-screen">
         <Providers>
-          <div className="2xl:w-[70%] md:w-full h-[calc(100vh-0px)] mx-auto flex flex-col p-2">
+          <div className="2xl:w-[70%] md:w-full h-screen mx-auto flex flex-col p-2">
             <Navbar />
-            <main className="flex-1 overflow-hidden rounded-2xl p-0 mt-1 shadow-2xl dark:shadow-[0_0_10px_rgba(255,255,255,0.4)] bg-card">
+            <main className="flex-1 overflow-y-scroll md:overflow-hidden rounded-2xl p-0 mt-1 shadow-2xl dark:shadow-[0_0_10px_rgba(255,255,255,0.4)] bg-card">
               {children}
             </main>
             <Toaster richColors />

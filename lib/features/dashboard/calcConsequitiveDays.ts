@@ -1,6 +1,6 @@
 export const calcConsequitiveDays = (dates: string[]) => {
   let streakDay = 0;
-  let longest = 0;
+  let longest = 1;
   const total = dates.length;
 
   if (dates.length === 1) return { streakDay: 1, longest: 1, total: 1 };

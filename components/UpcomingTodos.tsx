@@ -21,7 +21,7 @@ export const UpcomingTodos = ({ todos: upcomingTodos }: UpcomingTodosProps) => {
   if (!upcomingTodos) return;
 
   return (
-    <Card className="h-[calc(100%+8px)] overflow-y-auto text-start flex flex-col p-3 gap-0 bg-linear-to-bl from-yellow-400/90 via-yellow-400/75 to-yellow-300/75 shadow shadow-primary">
+    <Card className="h-full md:h-[calc(100%+8px)] overflow-y-auto text-start flex flex-col p-3 gap-0 bg-linear-to-bl from-yellow-400/90 via-yellow-400/75 to-yellow-300/75 shadow shadow-primary">
       {!upcomingTodos.length ? (
         <motion.div
           initial={{ opacity: 0, y: 200 }}
