@@ -24,7 +24,7 @@ interface StreakDaysProps {
   todos: ITodo[];
 }
 
-export const StreakDays = ({ todos: completedTodos }: StreakDaysProps) => {
+const StreakDays = ({ todos: completedTodos }: StreakDaysProps) => {
   const dates = () => {
     if (!completedTodos) return [];
     return [
@@ -60,7 +60,7 @@ export const StreakDays = ({ todos: completedTodos }: StreakDaysProps) => {
 
   return (
     <Card className="bg-transparent ring-0 items-end">
-      <CardContent className="">
+      <CardContent className="p-0">
         <ChartContainer className="h-38 w-38" config={chartConfig}>
           <RadialBarChart
             data={chartData}
@@ -114,3 +114,5 @@ export const StreakDays = ({ todos: completedTodos }: StreakDaysProps) => {
     </Card>
   );
 };
+
+export default StreakDays;

@@ -17,7 +17,7 @@ interface UpcomingTodosProps {
   todos: ITodo[];
 }
 
-export const UpcomingTodos = ({ todos: upcomingTodos }: UpcomingTodosProps) => {
+const UpcomingTodos = ({ todos: upcomingTodos }: UpcomingTodosProps) => {
   if (!upcomingTodos) return;
 
   return (
@@ -91,3 +91,5 @@ export const UpcomingTodos = ({ todos: upcomingTodos }: UpcomingTodosProps) => {
     </Card>
   );
 };
+
+export default UpcomingTodos;

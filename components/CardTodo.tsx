@@ -90,11 +90,11 @@ const CardToDo = ({ todoInfo }: CardToDoProps) => {
         <CardFooter className="flex justify-between items-center pt-0 px-3 bg-transparent border-none">
           <div
             style={{ backgroundColor: String(bgColor) }}
-            className="p-1 rounded-xl"
+            className="py-0.5 rounded-xl px-1.5"
           >
             <span className="flex items-center">
               {iconPriority}
-              <p className="text-sm lowercase text-gray-500 dark:text-gray-400">
+              <p className="text-xs font-semibold tracking-wide text-gray-400 dark:text-gray-500 lowercase">
                 {level}
               </p>
             </span>
@@ -110,7 +110,7 @@ const CardToDo = ({ todoInfo }: CardToDoProps) => {
               className={`text-xs font-semibol text-white px-2.5 py-1.5 rounded-lg`}
               style={{ backgroundColor: categoryColor }}
             >
-              {categoryTitle}
+              {categoryTitle.toLowerCase()}
             </span>
           </div>
         </CardFooter>

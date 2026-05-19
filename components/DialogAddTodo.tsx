@@ -118,7 +118,7 @@ function DialogAddTodo() {
         open={isOpen}
         onOpenChange={(open) => dispatch(mainDialogOpen(open))}
       >
-        <DialogContent className="sm:max-w-106.25 pb-2">
+        <DialogContent className="max-w-full sm:max-w-106.25 pb-2">
           <DialogHeader className="text-center!">
             <DialogTitle>Your Next Todo</DialogTitle>
             <DialogDescription>
@@ -140,6 +140,7 @@ function DialogAddTodo() {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="What needs to be done?"
+                  className="placeholder:text-xs md:placeholder:text-sm"
                 />
               </div>
               <div className="grid">
@@ -156,7 +157,7 @@ function DialogAddTodo() {
                   placeholder="Describe more your todo (please fill this in ✨)"
                   rows={4}
                   minLength={10}
-                  className={`mt-2 mb-1 rounded p-2 border focus:border-none duration-700
+                  className={`mt-2 mb-1 rounded p-2 border focus:border-none duration-700 placeholder:text-xs md:placeholder:text-sm
                       ${
                         minimum <= 0
                           ? "focus-visible:ring-2 focus-visible:ring-green-300"

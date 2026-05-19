@@ -61,12 +61,18 @@ const Navbar = () => {
       <div className="flex items-center space-x-3">
         {isSignedIn && (
           <>
-            <Button className="rounded-lg text-forground bg-transparent cursor-pointer hover:bg-[#e8e8e8] dark:hover:bg-[#ffffff29] duration-200">
-              <Link href={"/dashboard"}>
+            <Button
+              className="rounded-lg text-forground bg-transparent cursor-pointer hover:bg-[#e8e8e8] dark:hover:bg-[#ffffff29] duration-200"
+              name="dashboard"
+              aria-label="Go to dashboard button"
+            >
+              <Link href={"/dashboard"} aria-label="Go to dashboard link">
                 <RxDashboard />
               </Link>
             </Button>
             <Button
+              name="addTodo"
+              aria-label="add todo"
               onClick={() => dispatch(mainDialogOpen(true))}
               className="rounded-lg text-forground bg-transparent cursor-pointer hover:bg-[#e8e8e8] dark:hover:bg-[#ffffff29] duration-200"
             >
@@ -77,6 +83,7 @@ const Navbar = () => {
         {mounted && (
           <Button
             name="mode"
+            aria-label="toggle mode"
             className={`rounded-lg text-forground bg-transparent cursor-pointer hover:bg-[#e8e8e8] dark:hover:bg-[#ffffff29] duration-200 ${theme === "light" ? "text-black" : "text-white"}`}
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >

@@ -37,11 +37,10 @@ interface TodosStatsProps {
   pendingToDosLength: number;
 }
 
-export function TodosStats({
+const TodosStats = ({
   completedToDosLength,
   pendingToDosLength,
-}: TodosStatsProps) {
-
+}: TodosStatsProps) => {
   const totalToDos = pendingToDosLength + completedToDosLength;
   const chartData = [
     {
@@ -157,4 +156,6 @@ export function TodosStats({
       )}
     </Card>
   );
-}
+};
+
+export default TodosStats;

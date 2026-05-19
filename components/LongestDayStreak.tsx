@@ -6,7 +6,7 @@ interface LongestDayStreakProps {
   todos: ITodo[];
 }
 
-export const LongestDayStreak = ({
+const LongestDayStreak = ({
   todos: completedTodos,
 }: LongestDayStreakProps) => {
   const dates = () => {
@@ -41,3 +41,5 @@ export const LongestDayStreak = ({
     </Card>
   );
 };
+
+export default LongestDayStreak;

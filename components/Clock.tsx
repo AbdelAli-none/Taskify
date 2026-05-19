@@ -3,7 +3,7 @@
 import { Clock } from "lucide-react";
 import { useState, useEffect } from "react";
 
-export const ClockCard = () => {
+const ClockCard = () => {
   const [mounted, setMounted] = useState(false);
   const [time, setTime] = useState(new Date());
 
@@ -27,3 +27,5 @@ export const ClockCard = () => {
     </div>
   );
 };
+
+export default ClockCard;

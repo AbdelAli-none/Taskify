@@ -1,17 +1,32 @@
 export const dynamic = "force-dynamic";
-import { StreakDays } from "@/components/StreakDays";
+
+import nextDynamic from "next/dynamic";
+
+import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { getTodos } from "../actions/todo/getTodos";
-import { UserSection } from "@/components/UserSection";
-import { ArrowLeft, Smile } from "lucide-react";
-import { ClockCard } from "@/components/Clock";
-import { Achievements } from "@/components/Achievements";
-import { LongestDayStreak } from "@/components/LongestDayStreak";
-import { UpcomingTodos } from "@/components/UpcomingTodos";
-import { CategoriesChartStats } from "@/components/CategoriesChartStats";
 import { getCategoriesList } from "../actions/category/categoriesList";
-import { TodosStats } from "@/components/TodosStats";
+import { ArrowLeft, Smile } from "lucide-react";
+
+const StreakDays = nextDynamic(() => import("@/components/StreakDays"));
+const UserSection = nextDynamic(() =>
+  import("@/components/UserSection").then((m) => m.UserSection),
+);
+const ClockCard = nextDynamic(() => import("@/components/Clock"));
+const Achievements = nextDynamic(() => import("@/components/Achievements"));
+const LongestDayStreak = nextDynamic(
+  () => import("@/components/LongestDayStreak"),
+);
+const UpcomingTodos = nextDynamic(() => import("@/components/UpcomingTodos"));
+const CategoriesChartStats = nextDynamic(
+  () => import("@/components/CategoriesChartStats"),
+);
+const TodosStats = nextDynamic(() => import("@/components/TodosStats"));
+
+const fallback = (label: string) => (
+  <p className="text-white/50 text-sm animate-pulse">{label}</p>
+);
 
 const Dashboard = async () => {
   const [todosResult, categoriesResult] = await Promise.all([
@@ -27,13 +42,15 @@ const Dashboard = async () => {
   return (
     <div className="p-2 h-full grid grid-cols-12 md:grid-rows-12 gap-2 rounded-xl bg-[url('/dashboard-light.png')] dark:bg-[url('/dashboard-dark.png')]">
       <div className="row-span-1 md:row-span-4 bg-linear-to-tr from-blue-600/75 via-purple-600/75 to-pink-500/75 shadow shadow-primary col-span-12 md:col-span-6 rounded-2xl">
-        <div className="flex justify-between items-center flex-wrap p-3">
-          <div className="text-start text-gray-800 mt-1 flex-1/2">
+        <div className="flex justify-between items-center flex-nowrap px-2 md:px-3">
+          <div className="text-start text-gray-800 mt-1 w-1/2">
             <h2 className="text-md md:text-2xl font-extralight flex items-center flex-nowrap">
               <span className="text-gray-100 dark:text-gray-400">
                 Welcome,{" "}
               </span>
-              <UserSection />
+              <Suspense fallback={fallback("Loading user...")}>
+                <UserSection />
+              </Suspense>
               <Smile className="w-6 h-6 text-yellow-400 ml-1 animate-bounce" />
             </h2>
             <p className="text-md md:text-xl text-gray-100 dark:text-gray-400 font-light">
@@ -49,37 +66,51 @@ const Dashboard = async () => {
               </Link>
             </Button>
           </div>
-          <div className="w-fit flex-1/2">
-            <StreakDays todos={completedTodos} />
+          <div>
+            <Suspense fallback={fallback("Loading streak...")}>
+              <StreakDays todos={completedTodos} />
+            </Suspense>
           </div>
         </div>
       </div>
 
       <div className="row-span-1 p-3 md:row-span-4 bg-linear-to-bl from-cyan-600/75 via-blue-600/75 to-indigo-600/75 col-span-12 md:col-span-6 rounded-2xl">
-        <Achievements todos={completedTodos} />
+        <Suspense fallback={fallback("Loading achievements...")}>
+          <Achievements todos={completedTodos} />
+        </Suspense>
       </div>
 
       <div className="col-span-6 md:col-span-4 row-span-2 rounded-2xl">
-        <LongestDayStreak todos={completedTodos} />
+        <Suspense fallback={fallback("Loading streak stats...")}>
+          <LongestDayStreak todos={completedTodos} />
+        </Suspense>
       </div>
 
       <div className="col-span-6 md:col-span-4 rounded-2xl row-span-2">
-        <ClockCard />
+        <Suspense fallback={fallback("Loading clock...")}>
+          <ClockCard />
+        </Suspense>
       </div>
 
       <div className="col-span-12 md:col-span-4 rounded-2xl row-span-1 md:row-span-8">
-        <UpcomingTodos todos={upcomingTodos} />
+        <Suspense fallback={fallback("Loading upcoming todos...")}>
+          <UpcomingTodos todos={upcomingTodos} />
+        </Suspense>
       </div>
 
       <div className="col-span-12 md:col-span-4 rounded-2xl row-span-1 md:row-span-7">
-        <CategoriesChartStats todos={todos} categories={categories} />
+        <Suspense fallback={fallback("Loading chart...")}>
+          <CategoriesChartStats todos={todos} categories={categories} />
+        </Suspense>
       </div>
 
       <div className="col-span-12 md:col-span-4 rounded-2xl row-span-1 md:row-span-7">
-        <TodosStats
-          completedToDosLength={completedTodos.length}
-          pendingToDosLength={upcomingTodos.length}
-        />
+        <Suspense fallback={fallback("Loading stats...")}>
+          <TodosStats
+            completedToDosLength={completedTodos.length}
+            pendingToDosLength={upcomingTodos.length}
+          />
+        </Suspense>
       </div>
     </div>
   );

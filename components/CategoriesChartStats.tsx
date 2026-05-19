@@ -25,7 +25,7 @@ interface CategoriesChartStatsProps {
   categories: ICategory[];
 }
 
-export const CategoriesChartStats = ({
+const CategoriesChartStats = ({
   todos,
   categories,
 }: CategoriesChartStatsProps) => {
@@ -149,3 +149,5 @@ export const CategoriesChartStats = ({
     </Card>
   );
 };
+
+export default CategoriesChartStats;

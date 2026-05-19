@@ -40,7 +40,7 @@ interface AchievementsProps {
   todos: ITodo[];
 }
 
-export const Achievements = ({ todos: completedTodos }: AchievementsProps) => {
+const Achievements = ({ todos: completedTodos }: AchievementsProps) => {
   const dates = () => {
     if (!completedTodos) return [];
     return [
@@ -57,24 +57,22 @@ export const Achievements = ({ todos: completedTodos }: AchievementsProps) => {
 
   const { longest } = calcConsequitiveDays(dates() ?? []);
 
-  console.log(longest);
-
   return (
     <div className="w-full">
       <h1 className="text-md md:text-xl text-yellow-400/90 font-normal mb-6">
         🏆 Achievements
       </h1>
-      <div className="grid grid-cols-5 gap-x-3">
+      <div className="grid grid-cols-5 gap-x-1.5 md:gap-x-3">
         {achievements.map((achievement, idx) => (
           <Card
             key={idx}
-            className={`p-3 block h-fit bg-transparent hover:bg-black/10 hover:scale-105 duration-500 border-gray/50 dark:border dark:border-gray/30 shadow-md text-center ${
+            className={`px-1 py-2 md:p-3 block h-fit bg-transparent hover:bg-black/10 hover:scale-105 duration-500 border-gray/50 dark:border dark:border-gray/30 shadow-md text-center ${
               achievement.requirement <= longest
                 ? "grayscale-0"
                 : "grayscale-100"
             }`}
           >
-            <CardTitle className="font-thin text-sm text-gray-100 mb-1">
+            <CardTitle className="font-thin text-xs md:text-sm text-gray-100 mb-1">
               {achievement.name}
             </CardTitle>
             <CardContent className="flex-1 p-0">
@@ -89,3 +87,5 @@ export const Achievements = ({ todos: completedTodos }: AchievementsProps) => {
     </div>
   );
 };
+
+export default Achievements;
